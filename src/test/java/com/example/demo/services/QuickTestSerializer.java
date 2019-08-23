@@ -19,6 +19,6 @@ public class QuickTestSerializer {
         TestSerializeModel model = new TestSerializeModel();
         model.setInner(innerModel);
 
-        Assert.assertEquals("฿ 1000", model.getInner().getMessage());
+        Assert.assertEquals("1000", model.getInner().getMessage());
     }
 }
