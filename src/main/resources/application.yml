@@ -1,6 +1,13 @@
-braze.api.key=
-braze.host.name=https://rest.iad-03.braze.com
-braze.endpoint.user.track=/users/track
-braze.endpoint.user.delete=/users/delete
+braze:
+  api:
+    key:
+  host:
+    name: https://rest.iad-03.braze.com
+  endpoint:
+    user:
+      track: /users/track
+      delete: /users/delete
 
-thai.currency.symbol=฿
+thai:
+  currency:
+    thai-symbol: ฿
