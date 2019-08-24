@@ -1,5 +1,7 @@
 package com.example.demo.controllers;
 
+import com.example.demo.models.InnerModel;
+import com.example.demo.models.TestSerializeModel;
 import com.example.demo.models.request.DeleteUserDataRequest;
 import com.example.demo.models.request.EditUserDataRequest;
 import com.example.demo.models.response.UserDeleteResponse;
@@ -26,5 +28,16 @@ public class UserDataController {
     @DeleteMapping("/track")
     public ResponseEntity<UserDeleteResponse> deleteUserData(@RequestBody DeleteUserDataRequest deleteUserDataRequest) {
         return brazeUserDataService.deleteUser(deleteUserDataRequest);
+    }
+
+    @GetMapping("/serialize")
+    public TestSerializeModel getBahtSymbol() {
+        InnerModel innerModel = new InnerModel();
+        innerModel.setMessage("1000");
+
+        TestSerializeModel testSerializeModel = new TestSerializeModel();
+        testSerializeModel.setInner(innerModel);
+
+        return testSerializeModel;
     }
 }

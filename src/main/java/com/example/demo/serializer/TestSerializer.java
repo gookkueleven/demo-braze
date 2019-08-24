@@ -11,11 +11,12 @@ import java.io.IOException;
 @Component
 public class TestSerializer extends JsonSerializer<String> {
 
-    @Value("${thai.currency.thai-symbol}")
-    private String currencySymbol;
+    private final String BAHT_SYMBOL = "฿";
 
     @Override
-    public void serialize(String s, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
-       jsonGenerator.writeString(String.format("%s %s", currencySymbol, s));
+    public void serialize(String stringValue, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
+        if (stringValue != null) {
+            jsonGenerator.writeString(String.format("%s %s", BAHT_SYMBOL, stringValue));
+        }
     }
 }
