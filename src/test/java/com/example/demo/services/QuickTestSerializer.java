@@ -1,7 +1,7 @@
 package com.example.demo.services;
 
-import com.example.demo.models.InnerModel;
-import com.example.demo.models.TestSerializeModel;
+import com.example.demo.models.testModels.InnerModel;
+import com.example.demo.models.testModels.TestSerializeModel;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

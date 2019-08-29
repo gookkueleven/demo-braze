@@ -1,4 +1,4 @@
-package com.example.demo.models;
+package com.example.demo.models.testModels;
 
 import com.example.demo.serializer.TestSerializer;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

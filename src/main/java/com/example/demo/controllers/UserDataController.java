@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
-import com.example.demo.models.InnerModel;
-import com.example.demo.models.TestSerializeModel;
+import com.example.demo.models.testModels.InnerModel;
+import com.example.demo.models.testModels.TestSerializeModel;
 import com.example.demo.models.request.DeleteUserDataRequest;
 import com.example.demo.models.request.EditUserDataRequest;
 import com.example.demo.models.response.UserDeleteResponse;
