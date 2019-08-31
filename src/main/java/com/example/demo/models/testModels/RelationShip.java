@@ -7,11 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Employee {
+public class RelationShip {
 
-    private String name;
-    private String lastName;
-    private Integer age;
-
-    private RelationShip relationShip;
+    private String spouseName;
+    private String parentName;
+    private String childName;
 }
