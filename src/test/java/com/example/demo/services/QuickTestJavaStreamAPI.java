@@ -2,6 +2,7 @@ package com.example.demo.services;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -47,5 +48,23 @@ public class QuickTestJavaStreamAPI {
 
         System.out.println(stringList);
         System.out.println(uppercaseString);
+    }
+
+    @Test
+    public void testStream_sum_value_mapToInt() {
+        List<Integer> integers = Stream.of(1, 2, 3, 4, 5).collect(Collectors.toList());
+
+        int sum = integers.stream().mapToInt(Integer::intValue).sum();
+
+        assertEquals(15, sum);
+    }
+
+    @Test
+    public void testStream_sum_value_reduce() {
+        List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5);
+
+        int sum = integers.stream().reduce(0, Integer::sum);
+
+        assertEquals(15, sum);
     }
 }
