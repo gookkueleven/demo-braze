@@ -1,14 +1,13 @@
 package com.example.demo.serializer;
 
+import java.io.IOException;
+
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jackson.JsonComponent;
-import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
-import java.io.IOException;
 
 @JsonComponent
 public class TestSerializer extends JsonSerializer<String> {

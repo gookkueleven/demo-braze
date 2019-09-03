@@ -1,20 +1,20 @@
 package com.example.demo.services;
 
-import com.example.demo.models.testModels.Employee;
-import com.example.demo.models.testModels.TestSerializeModel;
-import org.jeasy.random.EasyRandom;
-import org.jeasy.random.EasyRandomParameters;
-import org.jeasy.random.FieldPredicates;
-import org.jeasy.random.TypePredicates;
-import org.jeasy.random.randomizers.number.IntegerRandomizer;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.junit4.SpringRunner;
+import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.assertEquals;
+import com.example.demo.models.testModels.Employee;
+import com.example.demo.models.testModels.TestSerializeModel;
+
+import org.jeasy.random.EasyRandom;
+import org.jeasy.random.EasyRandomParameters;
+import org.jeasy.random.FieldPredicates;
+import org.jeasy.random.randomizers.number.IntegerRandomizer;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 public class QuickTestEasyRandom {
