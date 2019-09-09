@@ -1,5 +1,9 @@
 package com.example.demo.services.clients;
 
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import com.example.demo.configurations.BrazeConfiguration;
 import com.example.demo.models.request.DeleteUserDataRequest;
 import com.example.demo.models.request.EditUserDataRequest;
@@ -7,14 +11,11 @@ import com.example.demo.models.request.UserDeleteRequest;
 import com.example.demo.models.request.UserTrackRequest;
 import com.example.demo.models.response.UserDeleteResponse;
 import com.example.demo.models.response.UserTrackResponse;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @Service
 public class BrazeUserDataClient {
