@@ -16,14 +16,14 @@ public class Resilience4JConfiguration {
     @Bean
     @Primary
     @Qualifier("mainCircuit")
-    public CircuitBreaker createCircuitBreaker(CircuitBreakerRegistry registry, CircuitBreakerConfig config) {
-        return registry.circuitBreaker("testCustomCircuitBreaker", config);
+    public CircuitBreaker createCircuitBreaker(CircuitBreakerRegistry registry) {
+        return registry.circuitBreaker("testCustomCircuitBreaker");
     }
 
     @Bean
     @Qualifier("secondCircuit")
-    public CircuitBreaker createSecondCircuitBreaker(CircuitBreakerRegistry registry, CircuitBreakerConfig config) {
-        return registry.circuitBreaker("testCustomCircuitBreaker", config);
+    public CircuitBreaker createSecondCircuitBreaker(CircuitBreakerRegistry registry) {
+        return registry.circuitBreaker("testCustomCircuitBreaker2");
     }
 
     @Bean
@@ -32,7 +32,7 @@ public class Resilience4JConfiguration {
     }
 
     @Bean
-    public CircuitBreakerConfig createConfig() {
+    public CircuitBreakerConfig createCustomConfig() {
         return CircuitBreakerConfig.custom()
                 .ringBufferSizeInClosedState(100)
                 .ringBufferSizeInHalfOpenState(10)
