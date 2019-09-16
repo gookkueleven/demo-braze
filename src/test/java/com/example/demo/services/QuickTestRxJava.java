@@ -53,6 +53,33 @@ public class QuickTestRxJava {
         assertEquals("Error naja", errorMess);
     }
 
+    @Test
+    public void testRxjava_moderate_when_error_it_will_stop_working() {
+
+        List<String> stringList = Stream.of("kook", "kod", "tep").collect(Collectors.toList());
+
+        Observable<String> sObservable = Observable.create(emitter -> {
+
+            for (String item : stringList) {
+                if ("kod".equalsIgnoreCase(item)) {
+                    emitter.onError(new Exception("Error naja"));
+                }
+                emitter.onNext(item);
+            }
+            emitter.onComplete();
+        });
+
+        sObservable.subscribe(data -> {
+            name = getString(data);
+        }, error -> {
+            errorMess = error.getMessage();
+        }
+        ).dispose();
+
+        assertEquals("kook", name);
+        assertEquals("Error naja", errorMess);
+    }
+
     public String getString(String name) {
         return name;
     }
