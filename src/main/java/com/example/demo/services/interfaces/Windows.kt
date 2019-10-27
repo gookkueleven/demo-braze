@@ -1,7 +1,9 @@
 package com.example.demo.services.interfaces
 
-interface Windows {
-    fun open();
-    fun close();
-    fun checkStatus()
+abstract class Windows(
+    var status: String = "close"
+) {
+    abstract fun open()
+    abstract fun close()
+    abstract fun checkStatus()
 }
