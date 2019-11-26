@@ -107,4 +107,10 @@ public class QuickTestKotlinService {
         String fromExt = TopLevelFunctionUtil.extendFunc(kotlinService);
         System.out.println(fromExt);
     }
+
+    @Test
+    public void testExtensionProperties() {
+        String fromExt = TopLevelFunctionUtil.getExtendProps(kotlinService);
+        System.out.println(fromExt);
+    }
 }
