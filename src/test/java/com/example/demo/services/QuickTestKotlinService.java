@@ -6,7 +6,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import static com.example.demo.services.TopLevelFunctionUtil.FRCPHR;
+import static com.example.demo.services.TopLevelFunctionUtil.topLevelFunction;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 public class QuickTestKotlinService {
@@ -60,5 +63,48 @@ public class QuickTestKotlinService {
         slideWindows.open();
         assertEquals("open", kotlinService.testSmartCast(slideWindows));
         assertEquals("this is not a slide windows", kotlinService.testSmartCast(liftWindows));
+    }
+
+    @Test
+    public void testSmartCastWithBlockExpression() {
+        assertEquals("the windows has been open", kotlinService.testWhenWithSmartCastAndBlockExpression(slideWindows));
+        assertEquals("the windows has been close", kotlinService.testWhenWithSmartCastAndBlockExpression(liftWindows));
+    }
+
+    @Test
+    public void testRange() {
+        kotlinService.testKotlinRange();
+        kotlinService.testRangeWithDownToAndStep();
+        kotlinService.testRangeWithOpenEndPoint();
+        kotlinService.testUnpackingVariable();
+    }
+
+    @Test
+    public void inChecking() {
+        assertTrue(kotlinService.inForCheckingElementExistence('A'));
+        assertTrue(kotlinService.inForCheckingElementExistence('a'));
+        assertTrue(kotlinService.inForCheckingNonExistence('A'));
+    }
+
+    @Test
+    public void createListWithKotlinListOf() {
+        kotlinService.createListWithListOf();
+    }
+
+    @Test
+    public void testKotlinDefaultFunctionValue() {
+        kotlinService.forJavaDefaultParam();
+    }
+
+    @Test
+    public void callTopLevelFunction() {
+        TopLevelFunctionUtil.topLevelFunction();
+        System.out.println(FRCPHR);
+    }
+
+    @Test
+    public void testExtensionFunction() {
+        String fromExt = TopLevelFunctionUtil.extendFunc(kotlinService);
+        System.out.println(fromExt);
     }
 }

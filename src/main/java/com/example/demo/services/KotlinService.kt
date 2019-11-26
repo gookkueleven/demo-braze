@@ -7,6 +7,9 @@ import com.example.demo.models.kotlin.Rectangle
 import com.example.demo.models.testModels.GFriend
 import com.example.demo.services.interfaces.Windows
 import org.springframework.stereotype.Service
+import java.util.*
+import java.util.stream.Collectors
+import java.util.stream.Stream
 
 @Service
 class KotlinService {
@@ -20,6 +23,10 @@ class KotlinService {
     val createdList = arrayListOf("test")
 
     val stringTemplate = "Wow it can be any expressions inside this String Template. The value should be $expressionIfToValue and it really is! : ${if ("KotlinService".contentEquals(serviceName)) "hooray" else "nay"}"
+
+    val integerRange = 1..10
+
+    val notInclude10Range = 1 until 10
 
     fun funExpressionBody() = println("Hello, world")
 
@@ -98,5 +105,75 @@ class KotlinService {
 
     fun testSmartCast(windows: Windows): String {
         return if (windows is SlideWindows) windows.status else "this is not a slide windows"
+    }
+
+    fun testWhenWithSmartCastAndBlockExpression(windows: Windows): String =
+        when (windows)  {
+            is SlideWindows -> {
+                windows.open()
+                "the windows has been ${windows.status}" //the last line is a result of this expression block
+            }
+            is LiftWindows -> {
+                windows.close()
+                "the windows has been ${windows.status}"
+            }
+            else -> "we don't responsible for this kind of windows"
+        }
+
+    fun testKotlinRange() {
+        for (i in integerRange) {
+            println(i)
+        }
+    }
+
+    fun testRangeWithDownToAndStep() {
+        for(i in 20 downTo 0 step 4) {
+            println(i)
+        }
+    }
+
+    fun testRangeWithOpenEndPoint() {
+        for(i in notInclude10Range) {
+            println(i)
+        }
+    }
+
+    fun testUnpackingVariable() {
+
+        val codeMapper = TreeMap<Char, String>()
+
+        for(c in 'A'..'F') {
+            val binary = Integer.toBinaryString(c.toInt())
+            codeMapper[c] = binary
+        }
+
+        for ((key, value) in codeMapper) {
+            println("the key is $key and value is $value")
+        }
+
+        val stringList = arrayListOf("one", "two", "three")
+
+        for ((index, value) in stringList.withIndex()) println("$index: $value")
+    }
+
+    fun inForCheckingElementExistence(c: Char) = c in 'A'..'F' || c in 'a'..'f'
+
+    fun inForCheckingNonExistence(c:Char) = c !in 'X'..'Z'
+
+    fun createListWithListOf() {
+        val alphabetList = listOf('A', 'B', 'C', 'D')
+
+        for (c in alphabetList) {
+            println(c)
+        }
+    }
+
+    fun functionWithDefaultParameterValue(subject: String,
+                                          code: String = "101") {
+        println("Today, I have $subject in the morning it is a beginner session so it's code is $code")
+    }
+
+    fun forJavaDefaultParam() {
+        this.functionWithDefaultParameterValue("Yoga")
     }
 }
