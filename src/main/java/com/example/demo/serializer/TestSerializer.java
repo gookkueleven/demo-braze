@@ -1,18 +1,17 @@
 package com.example.demo.serializer;
 
-import java.io.IOException;
-
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
-
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.jackson.JsonComponent;
+import org.springframework.stereotype.Component;
 
-@JsonComponent
+import java.io.IOException;
+
+@Component
 public class TestSerializer extends JsonSerializer<String> {
 
-    @Value("${thai.currency.thai-symbol}")
+    @Value("${thai.currency.thai-baht}")
     private String thaiCurrencySymbol;
 
     @Override
