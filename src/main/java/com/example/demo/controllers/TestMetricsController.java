@@ -1,10 +1,13 @@
 package com.example.demo.controllers;
 
+import com.example.demo.models.request.TestValidator;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
+@Validated
 @RestController
 @RequestMapping("/demo/metrix")
 public class TestMetricsController {
@@ -14,4 +17,8 @@ public class TestMetricsController {
         return ResponseEntity.ok().build();
     }
 
+    @PostMapping
+    public ResponseEntity testCustomValidator(@Valid @RequestBody TestValidator testValidator) {
+        return ResponseEntity.ok(testValidator.getStringList());
+    }
 }
