@@ -62,4 +62,26 @@ class LambdaTestServiceTest {
             it == "ku"
         }.keys)
     }
+
+    @Test
+    fun `create predicate using lambda`() {
+
+        val isDolbySurrondSound = { dolby: Dolby -> dolby.channel == 7 }
+
+        val dolbyList = listOf(
+                Dolby("audio", "audio", 2),
+                Dolby("vision", "vision", 0),
+                Dolby("atmos", "atmos", 7)
+        )
+
+        val countDolby = dolbyList.count(isDolbySurrondSound)
+        val findDolbyAtmos = dolbyList.find(isDolbySurrondSound)
+        val anyDolbyAtmos = dolbyList.any(isDolbySurrondSound)
+        val allDolby = dolbyList.all(isDolbySurrondSound)
+
+        println(countDolby)
+        println(findDolbyAtmos)
+        println(anyDolbyAtmos)
+        println(allDolby)
+    }
 }
