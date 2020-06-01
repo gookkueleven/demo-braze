@@ -41,4 +41,25 @@ class LambdaTestServiceTest {
         print(atmosNameFunction(atmos))
         print(itSelfNameFunction)
     }
+
+    @Test
+    fun create_map_and_filter_it() {
+        val mapJaa = mapOf(
+                "kook" to "ku",
+                "dog" to "cat",
+                "card" to "casino"
+        )
+
+        println(mapJaa.filter {
+            it.key == "kook"
+        }.values)
+
+        println(mapJaa.filterKeys {
+            it == "kook"
+        }.values)
+
+        println(mapJaa.filterValues {
+            it == "ku"
+        }.keys)
+    }
 }
