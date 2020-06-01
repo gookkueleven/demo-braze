@@ -2,6 +2,7 @@ package com.example.demo.kotlinServices
 
 import com.example.demo.services.Audi
 import com.example.demo.services.Cars
+import com.example.demo.services.KotlinService
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith

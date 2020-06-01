@@ -1,5 +1,6 @@
 package com.example.demo.services
 
+import com.example.demo.models.Dolby
 import com.example.demo.models.ThreeTwoOne
 import org.springframework.stereotype.Service
 
@@ -27,6 +28,12 @@ class LambdaTestService {
         val nameNAge = listOfAge.forEach {
             print("$it $name $level")
         }
+    }
+
+    fun learnLambdaMemberReference(): Int {
+        val dolby = Dolby("Audio", "Dolby Audio", 5)
+
+        return dolby.channel!!
     }
 
 

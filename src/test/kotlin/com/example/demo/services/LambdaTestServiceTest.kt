@@ -1,5 +1,6 @@
 package com.example.demo.services
 
+import com.example.demo.models.Dolby
 import org.junit.Assert
 import org.junit.Test
 
@@ -23,5 +24,16 @@ class LambdaTestServiceTest {
     @Test
     fun test_maxBy() {
         lambdaTestService.testMaxBy()
+    }
+
+    @Test
+    fun test_memberReference() {
+        print(KotlinService::serviceName)
+    }
+
+    @Test
+    fun postpone_creating_class_instance_with_member_reference() {
+        var dolby = ::Dolby
+        var atmos = dolby("audio", "atmos", 7)
     }
 }
