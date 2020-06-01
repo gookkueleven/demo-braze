@@ -19,4 +19,15 @@ class LambdaTestService {
         val testClass = ThreeTwoOne<String, Int, Boolean>("Kook", 26, true)
         print(testClass)
     }
+
+    fun testMaxBy (level: Int = 0) {
+        val name = "Dolby"
+        val listOfAge = listOf(12, 13, 14, 15)
+
+        val nameNAge = listOfAge.forEach {
+            print("$it $name $level")
+        }
+    }
+
+
 }

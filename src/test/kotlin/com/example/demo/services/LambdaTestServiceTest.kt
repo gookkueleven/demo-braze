@@ -19,4 +19,9 @@ class LambdaTestServiceTest {
     fun test_ThreeTwoOne() {
         lambdaTestService.testThreeTwoOne()
     }
+
+    @Test
+    fun test_maxBy() {
+        lambdaTestService.testMaxBy()
+    }
 }
