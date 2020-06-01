@@ -34,6 +34,11 @@ class LambdaTestServiceTest {
     @Test
     fun postpone_creating_class_instance_with_member_reference() {
         var dolby = ::Dolby
-        var atmos = dolby("audio", "atmos", 7)
+        var atmos = dolby("audio", "Dolby ATMOS", 7)
+        val atmosNameFunction = Dolby::name
+        val itSelfNameFunction = atmos::name
+
+        print(atmosNameFunction(atmos))
+        print(itSelfNameFunction)
     }
 }
