@@ -84,4 +84,18 @@ class LambdaTestServiceTest {
         println(anyDolbyAtmos)
         println(allDolby)
     }
+
+    @Test
+    fun `test groupBy in kotlin`() {
+
+        val dolbyProduct = listOf(Dolby("sound", "ATMOS", 7),
+        Dolby("vision", "VISION", 0),
+        Dolby("sound", "AUDIO", 5))
+
+        val dolbyProductGroupByType = dolbyProduct.groupBy { it.type }
+
+        println(dolbyProductGroupByType)
+    }
+
+
 }
