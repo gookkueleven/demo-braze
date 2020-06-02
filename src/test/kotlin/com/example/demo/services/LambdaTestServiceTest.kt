@@ -34,7 +34,7 @@ class LambdaTestServiceTest {
     @Test
     fun postpone_creating_class_instance_with_member_reference() {
         var dolby = ::Dolby
-        var atmos = dolby("audio", "Dolby ATMOS", 7)
+        var atmos = dolby("audio", "Dolby ATMOS", 7, null)
         val atmosNameFunction = Dolby::name
         val itSelfNameFunction = atmos::name
 
@@ -97,5 +97,16 @@ class LambdaTestServiceTest {
         println(dolbyProductGroupByType)
     }
 
+    @Test
+    fun `test flatMap and list flatten`() {
+        val dolbyProduct = listOf(Dolby("sound", "ATMOS", 7, listOf("DTS:X")),
+                Dolby("vision", "VISION", 0, listOf("HDR10", "HDR10+", "HLG", "technicolor")),
+                Dolby("sound", "AUDIO", 5, listOf("AAL")))
 
+        val dolbyRivals = dolbyProduct.filter {
+            it.type == "sound"
+        }.flatMap { it.rivals!! }
+
+        println(dolbyRivals)
+    }
 }
