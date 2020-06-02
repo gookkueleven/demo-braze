@@ -3,6 +3,7 @@ package com.example.demo.services
 import com.example.demo.models.Dolby
 import org.junit.Assert
 import org.junit.Test
+import java.util.stream.Stream
 
 class LambdaTestServiceTest {
     private val lambdaTestService = LambdaTestService()
@@ -108,5 +109,12 @@ class LambdaTestServiceTest {
         }.flatMap { it.rivals!! }
 
         println(dolbyRivals)
+    }
+
+    @Test
+    fun `Test Kotlin sequence`() {
+        val firstSequence = generateSequence(100) { it + 1 }
+        val secondSequence = firstSequence.takeWhile { it <= 110 }
+        println(secondSequence.joinToString(","))
     }
 }
