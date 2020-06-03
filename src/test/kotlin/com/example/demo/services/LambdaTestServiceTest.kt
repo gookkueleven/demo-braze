@@ -1,6 +1,7 @@
 package com.example.demo.services
 
 import com.example.demo.models.Dolby
+import com.example.demo.models.testModels.ButtonLess
 import org.junit.Assert
 import org.junit.Test
 import java.util.stream.Stream
@@ -116,5 +117,13 @@ class LambdaTestServiceTest {
         val firstSequence = generateSequence(100) { it + 1 }
         val secondSequence = firstSequence.takeWhile { it <= 110 }
         println(secondSequence.joinToString(","))
+    }
+
+    @Test
+    fun `Test Java functional interface`() {
+        val buttonLess = ButtonLess().testFunctionalInterfaceWithAnotherParameter("Kook") {
+            println(it)
+            print("and this is what I have implemented when call the functional interface")
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.demo.kotlinServices
 
+import com.example.demo.models.testModels.ButtonLess
 import com.example.demo.services.Audi
 import com.example.demo.services.Cars
 import com.example.demo.services.KotlinService
@@ -31,6 +32,16 @@ class TestCars {
 
         //check reference equality
         println(car1 === car2)
+    }
+
+    @Test
+    fun `Test functional Interface`() {
+        val s = "call from interface"
+        val botton1 = ButtonLess()
+        botton1.testFunctionalInterface {
+             println(it)
+            println(s)
+        }
     }
 
 }
