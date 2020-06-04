@@ -2,6 +2,7 @@ package com.example.demo.services
 
 import com.example.demo.models.Dolby
 import com.example.demo.models.testModels.ButtonLess
+import com.example.demo.services.interfaces.JavaFunctionalInterface
 import org.junit.Assert
 import org.junit.Test
 import java.util.stream.Stream
@@ -125,5 +126,40 @@ class LambdaTestServiceTest {
             println(it)
             print("and this is what I have implemented when call the functional interface")
         }
+    }
+
+    @Test
+    fun `Test SAM`() {
+        val javaFunctionalInterface = JavaFunctionalInterface { s ->
+            println(s)
+        }
+
+        val buttonLess1 = ButtonLess().testFunctionalInterface(javaFunctionalInterface)
+        val buttonLess2 = ButtonLess().testFunctionalInterface(javaFunctionalInterface)
+    }
+
+    @Test
+    fun `Test with - a lambda with receiver`() {
+        val dolby = Dolby()
+        with(dolby) {
+            this.channel = 7
+        }
+
+        val test = with(Dolby()) {
+            this.channel = 8
+            this
+        }
+
+        println(dolby.channel)
+        println(test.channel)
+    }
+
+    @Test
+    fun `Test build String`() {
+        val name = "Dolby"
+        val s = buildString {
+            append("$name Products")
+        }
+        println(s)
     }
 }
